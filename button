@@ -1,0 +1,22 @@
+class Main:
+    def __init__(self, screen):
+        # ... (otras inicializaciones)
+
+    def reset_grid(self):
+        # Restablece la cuadrícula a su estado inicial (borra los números ingresados por el jugador)
+
+    def main(self):
+        # ... (código previo)
+
+        # Dibuja el botón de reinicio
+        pygame.draw.rect(self.screen, pygame.Color("blue"), (WIDTH // 2, HEIGHT + CELL_SIZE[1], CELL_SIZE[0] * 2, CELL_SIZE[1]))
+        reset_text = self.message_font.render("Reiniciar", True, pygame.Color("white"))
+        self.screen.blit(reset_text, (WIDTH // 2 + CELL_SIZE[0] // 2, HEIGHT + CELL_SIZE[1] // 2))
+
+        while True:
+            # ... (manejo de eventos, etc.)
+
+            # Detecta clic en el botón de reinicio
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if WIDTH // 2 < event.pos[0] < WIDTH // 2 + CELL_SIZE[0] * 2 and HEIGHT + CELL_SIZE[1] < event.pos[1] < HEIGHT + CELL_SIZE[1] * 2:
+                    self.reset_grid()
